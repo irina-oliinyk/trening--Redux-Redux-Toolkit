@@ -3,7 +3,7 @@ import css from "./Task.module.css";
 // 1. Імпортуємо хук
 import { useDispatch } from "react-redux";
 // 2. Імпортуємо фабрику екшену
-import { deleteTask, toggleCompleted } from "../../redux/actions";
+import { deleteTask, toggleCompleted } from "../../redux/tasksSlice";
 
 export const Task = ({ task }) => {
   const dispatch = useDispatch();
@@ -25,8 +25,8 @@ export const Task = ({ task }) => {
       <input
         type="checkbox"
         className={css.checkbox}
-        onChange={handleToggle}
         checked={task.completed}
+        onChange={handleToggle}
       />
       <p className={css.text}>{task.text}</p>
       <button className={css.btn} onClick={handleDelete}>
